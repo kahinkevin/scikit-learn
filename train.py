@@ -37,18 +37,20 @@ predicted_new_bike_shares = model.predict(X_test)
 
 # stats
 print('--- comparison of real value and pred ---')
+print('    true:')
 print(y_test)
+print('\n    predicted:')
 print(predicted_new_bike_shares)
 print('-----------------------------------------')
 
 acc = accuracy_score(y_test, predicted_new_bike_shares)
-f1 = f1_score()
+f1 = f1_score(y_test, predicted_new_bike_shares, average='macro')
 mae = mean_absolute_error(y_test, predicted_new_bike_shares)
 mse = mean_squared_error(y_test, predicted_new_bike_shares)
-pr = precision_score()
+pr = precision_score(y_test, predicted_new_bike_shares, average='macro')
 r2 = r2_score(y_test, predicted_new_bike_shares)
-rec = recall_score()
-metrics_msg = 'accuracy: {} - f1: {} - mean absolute errror: {} - mean squared error: {} \n - precision: {} - r2 score: {} - recall: {} '.format(acc, f1, mae, mse, pr, r2, rec)
+rec = recall_score(y_test, predicted_new_bike_shares, average='macro')
+metrics_msg = 'accuracy: {} - f1: {} - mean absolute errror: {} - mean squared error: {} \n - precision: {} - r2 score: {} - recall: {} \n \n'.format(acc, f1, mae, mse, pr, r2, rec)
 # "/home/kacham/Documents/tracelogs/metrics/(exp)_(challenge)_(model)_buggy/corrected_metrics.txt"
 with open("/home/kacham/Documents/tracelogs/metrics/sk_not_calling_array_london_merged_GaussianNB_buggy_metrics.txt", "a") as myfile:
     myfile.write(metrics_msg)
