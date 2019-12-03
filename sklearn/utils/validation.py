@@ -765,6 +765,11 @@ def column_or_1d(y, warn=False):
     y : array
 
     """
+    import os
+    model_name = "GaussianNB"
+    print("TRACER WAS CALLED")
+    with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+        myfile.write(model_name + " in sklearn/utils/validation.py line 768 called \n")
     y = np.asarray(y)
     shape = np.shape(y)
     if len(shape) == 1:

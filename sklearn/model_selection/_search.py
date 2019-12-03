@@ -643,6 +643,11 @@ class BaseSearchCV(MetaEstimatorMixin, BaseEstimator, metaclass=ABCMeta):
             refit_metric = 'score'
 
         X, y, groups = indexable(X, y, groups)
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/model_selection/_search.py line 646 called \n")
         # make sure fit_params are sliceable
         fit_params_values = indexable(*fit_params.values())
         fit_params = dict(zip(fit_params.keys(), fit_params_values))

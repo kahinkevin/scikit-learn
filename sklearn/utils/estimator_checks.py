@@ -539,6 +539,11 @@ class _NotAnArray:
     """
 
     def __init__(self, data):
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/utils/estimator_checks.py line 542 called \n")
         self.data = np.asarray(data)
 
     def __array__(self, dtype=None):
@@ -728,6 +733,11 @@ def check_sample_weights_pandas_series(name, estimator_orig):
 
 @ignore_warnings(category=(DeprecationWarning, FutureWarning))
 def check_sample_weights_not_an_array(name, estimator_orig):
+    import os
+    model_name = "GaussianNB"
+    print("TRACER WAS CALLED")
+    with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+        myfile.write(model_name + " in sklearn/utils/estimator_checks.py line 729 called \n")
     # check that estimators will accept a 'sample_weight' parameter of
     # type _NotAnArray in the 'fit' function.
     estimator = clone(estimator_orig)
@@ -1186,6 +1196,11 @@ def _check_transformer(name, transformer_orig, X, y):
     # fit
 
     if name in CROSS_DECOMPOSITION:
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/utils/estimator_checks.py line 1189 called \n")
         y_ = np.c_[np.asarray(y), np.asarray(y)]
         y_[::2, 1] *= 2
         if isinstance(X, _NotAnArray):

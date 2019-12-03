@@ -121,6 +121,11 @@ def _preprocess_data(X, y, fit_intercept, normalize=False, copy=True,
     if isinstance(sample_weight, numbers.Number):
         sample_weight = None
     if sample_weight is not None:
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/_base.py line 123 called \n")
         sample_weight = np.asarray(sample_weight)
 
     if check_input:
@@ -183,6 +188,11 @@ def _preprocess_data(X, y, fit_intercept, normalize=False, copy=True,
 def _rescale_data(X, y, sample_weight):
     """Rescale data so as to support sample_weight"""
     n_samples = X.shape[0]
+    import os
+    model_name = "GaussianNB"
+    print("TRACER WAS CALLED")
+    with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+        myfile.write(model_name + " in sklearn/linear_model/_base.py line 186 called \n")
     sample_weight = np.array(sample_weight)
     if sample_weight.ndim == 0:
         sample_weight = np.full(n_samples, sample_weight,
@@ -472,6 +482,11 @@ class LinearRegression(MultiOutputMixin, RegressorMixin, LinearModel):
                          y_numeric=True, multi_output=True)
 
         if sample_weight is not None and np.asarray(sample_weight).ndim > 1:
+            import os
+            model_name = "GaussianNB"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/_base.py line 474 called \n")
             raise ValueError("Sample weights must be 1D array or scalar")
 
         X, y, X_offset, y_offset, X_scale = self._preprocess_data(

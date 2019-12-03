@@ -354,6 +354,11 @@ def class_distribution(y, sample_weight=None):
 
     n_samples, n_outputs = y.shape
     if sample_weight is not None:
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/utils/multiclass.py line 356 called \n")
         sample_weight = np.asarray(sample_weight)
 
     if issparse(y):
@@ -364,6 +369,11 @@ def class_distribution(y, sample_weight=None):
             col_nonzero = y.indices[y.indptr[k]:y.indptr[k + 1]]
             # separate sample weights for zero and non-zero elements
             if sample_weight is not None:
+                import os
+                model_name = "GaussianNB"
+                print("TRACER WAS CALLED")
+                with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+                    myfile.write(model_name + " in sklearn/utils/multiclass.py line 367 called \n")
                 nz_samp_weight = sample_weight[col_nonzero]
                 zeros_samp_weight_sum = (np.sum(sample_weight) -
                                          np.sum(nz_samp_weight))

@@ -568,6 +568,11 @@ class _BaseRidge(LinearModel, metaclass=ABCMeta):
 
         if ((sample_weight is not None) and
                 np.asarray(sample_weight).ndim > 1):
+            import os
+            model_name = "GaussianNB"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_corrected_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/_ridge.py line 570 called \n")
             raise ValueError("Sample weights must be 1D array or scalar")
 
         # when X is sparse we only remove offset from y
