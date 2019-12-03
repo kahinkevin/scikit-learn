@@ -204,6 +204,11 @@ class GaussianNB(BaseNB):
         -------
         self : object
         """
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 207 called \n")
         return self._partial_fit(X, y, np.unique(y), _refit=True,
                                  sample_weight=sample_weight)
 
@@ -621,6 +626,11 @@ class BaseDiscreteNB(BaseNB):
         # We convert it to np.float64 to support sample_weight consistently;
         # this means we also don't have to cast X to floating point
         if sample_weight is not None:
+            import os
+            model_name = "GaussianNB"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/naive_bayes.py line 626 called \n")
             Y = Y.astype(np.float64, copy=False)
             sample_weight = np.atleast_2d(sample_weight)
             Y *= check_array(sample_weight).T

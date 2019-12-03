@@ -881,6 +881,11 @@ class PLSSVD(TransformerMixin, BaseEstimator):
         Xr = (X - self.x_mean_) / self.x_std_
         x_scores = np.dot(Xr, self.x_weights_)
         if Y is not None:
+            import os
+            model_name = "GaussianNB"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/cross_decomposition/_pls_.py line 884 called \n")
             if Y.ndim == 1:
                 Y = Y.reshape(-1, 1)
             Yr = (Y - self.y_mean_) / self.y_std_

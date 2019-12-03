@@ -121,6 +121,12 @@ def _preprocess_data(X, y, fit_intercept, normalize=False, copy=True,
     if isinstance(sample_weight, numbers.Number):
         sample_weight = None
 
+    import os
+    model_name = "GaussianNB"
+    print("TRACER WAS CALLED")
+    with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+        myfile.write(model_name + " in sklearn/linear_model/_base.py line 123 called \n")
+
     if check_input:
         X = check_array(X, copy=copy, accept_sparse=['csr', 'csc'],
                         dtype=FLOAT_DTYPES)
@@ -181,6 +187,11 @@ def _preprocess_data(X, y, fit_intercept, normalize=False, copy=True,
 def _rescale_data(X, y, sample_weight):
     """Rescale data so as to support sample_weight"""
     n_samples = X.shape[0]
+    import os
+    model_name = "GaussianNB"
+    print("TRACER WAS CALLED")
+    with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+        myfile.write(model_name + " in sklearn/linear_model/_base.py line 186 called \n")
     sample_weight = np.full(n_samples, sample_weight,
                             dtype=np.array(sample_weight).dtype)
     sample_weight = np.sqrt(sample_weight)
@@ -466,6 +477,12 @@ class LinearRegression(MultiOutputMixin, RegressorMixin, LinearModel):
         n_jobs_ = self.n_jobs
         X, y = check_X_y(X, y, accept_sparse=['csr', 'csc', 'coo'],
                          y_numeric=True, multi_output=True)
+
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/_base.py line 474 called \n")
 
         if sample_weight is not None and np.atleast_1d(sample_weight).ndim > 1:
             raise ValueError("Sample weights must be 1D array or scalar")

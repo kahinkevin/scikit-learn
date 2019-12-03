@@ -133,6 +133,11 @@ class DummyClassifier(MultiOutputMixin, ClassifierMixin, BaseEstimator):
         self.sparse_output_ = sp.issparse(y)
 
         if not self.sparse_output_:
+            import os
+            model_name = "GaussianNB"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/dummy.py line 136 called \n")
             y = np.atleast_1d(y)
 
         if y.ndim == 1:
@@ -469,6 +474,11 @@ class DummyRegressor(MultiOutputMixin, RegressorMixin, BaseEstimator):
             y = np.reshape(y, (-1, 1))
         self.n_outputs_ = y.shape[1]
 
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/dummy.py line 474 called \n")
         check_consistent_length(X, y, sample_weight)
 
         if self.strategy == "mean":

@@ -643,6 +643,11 @@ class BaseSearchCV(MetaEstimatorMixin, BaseEstimator, metaclass=ABCMeta):
             refit_metric = 'score'
 
         X, y, groups = indexable(X, y, groups)
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/model_selection/_search.py line 646 called \n")
         n_splits = cv.get_n_splits(X, y, groups)
 
         base_estimator = clone(self.estimator)

@@ -566,6 +566,12 @@ class _BaseRidge(LinearModel, metaclass=ABCMeta):
         else:
             solver = self.solver
 
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/_ridge.py line 570 called \n")
+
         if ((sample_weight is not None) and
                 np.atleast_1d(sample_weight).ndim > 1):
             raise ValueError("Sample weights must be 1D array or scalar")

@@ -538,6 +538,11 @@ class _NotAnArray:
     """
 
     def __init__(self, data):
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/utils/estimator_checks.py line 542 called \n")
         self.data = data
 
     def __array__(self, dtype=None):
@@ -1162,6 +1167,11 @@ def _check_transformer(name, transformer_orig, X, y):
     # fit
 
     if name in CROSS_DECOMPOSITION:
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_not_calling_array_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/utils/estimator_checks.py line 1189 called \n")
         y_ = np.c_[y, y]
         y_[::2, 1] *= 2
     else:
