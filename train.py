@@ -4,7 +4,8 @@ import sklearn
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn import cross_validation as cval
+# from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 # TODO ------------------------------------------------------------- update for each exp
 from sklearn.naive_bayes import GaussianNB
@@ -25,7 +26,7 @@ X_features = ['t1', 't2', 'hum', 'wind_speed', 'weather_code', 'is_holiday', 'is
 X = data[X_features]
 X = X.astype('int') #fix 1
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, 
+X_train, X_test, y_train, y_test = cval.train_test_split(X, y, 
                                                     test_size=0.2, 
                                                     random_state=123) #fix 2, no stratify
 
