@@ -11,7 +11,7 @@ from sklearn import preprocessing
 from sklearn.naive_bayes import GaussianNB
 
 from sklearn.pipeline import make_pipeline
-from sklearn.model_selection import GridSearchCV
+from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import accuracy_score, f1_score, mean_absolute_error, mean_squared_error, precision_score, r2_score, recall_score
 
 # load data
@@ -33,7 +33,7 @@ X_train, X_test, y_train, y_test = cval.train_test_split(X, y,
 # train a Gaussian classifier
 # TODO ------------------------------------------------------------- update for each exp
 model = GaussianNB()
-model.fit(X_train, y_train.values.ravel()) # fix 3
+model.fit(X_train, y_train) # fix 3
 
 # predict Output
 predicted_new_bike_shares = model.predict(X_test)
