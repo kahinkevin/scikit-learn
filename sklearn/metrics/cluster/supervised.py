@@ -11,7 +11,7 @@ better.
 
 from math import log
 
-from scipy.misc import comb
+from scipy.special import comb
 from scipy.sparse import coo_matrix
 import numpy as np
 
