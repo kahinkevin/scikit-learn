@@ -160,6 +160,11 @@ class GaussianNB(BaseNB):
             Returns self.
         """
 
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_duplicate_fit_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 162 called \n")
         X, y = check_arrays(X, y, sparse_format='dense')
         y = column_or_1d(y, warn=True)
 
@@ -236,6 +241,11 @@ class GaussianNB(BaseNB):
         return total_sum / n_total, total_ssd / n_total
 
     def partial_fit(self, X, y, classes=None):
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_duplicate_fit_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 218 called \n")
         """Incremental fit on a batch of samples.
 
         This method is expected to be called several times consecutively
@@ -274,6 +284,11 @@ class GaussianNB(BaseNB):
         y = column_or_1d(y, warn=True)
         epsilon = 1e-9
 
+        import os
+        model_name = "GaussianNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_duplicate_fit_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 261 called \n")
         if _check_partial_fit_first_call(self, classes):
             # This is the first call to partial_fit:
             # initialize various cumulative counters
