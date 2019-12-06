@@ -19,12 +19,12 @@ with open("/home/kacham/Documents/tracelogs/tracelog_(exp)_corrected_" + model_n
     myfile.write(model_name + " in  line  called \n")
 
 ________________________________________________________
-sk_
+sk_add_lambda
 
 import os
-model_name = "(modelN)"
+model_name = "ARDRegression"
 print("TRACER WAS CALLED")
-with open("/home/kacham/Documents/tracelogs/tracelog_(exp)_(evalType)_" + model_name + ".txt", "a") as myfile:
+with open("/home/kacham/Documents/tracelogs/tracelog_sk_add_lambda_corrected_" + model_name + ".txt", "a") as myfile:
     myfile.write(model_name + " in  line  called \n")
 
 

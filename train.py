@@ -4,17 +4,17 @@ import sklearn
 
 import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.cross_validation import train_test_split
 from sklearn import preprocessing
 # TODO ------------------------------------------------------------- update for each exp
-from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model.bayes import ARDRegression
 
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score, f1_score, mean_absolute_error, mean_squared_error, precision_score, r2_score, recall_score
 
 # load data
-dataset_url = '/home/kacham/Documents/datasets_kaggle/discrete/london_merged.csv'
+dataset_url = '/home/kacham/Documents/datasets_kaggle/continuous/2017.csv'
 data = pd.read_csv(dataset_url)
 
 # separate features
@@ -31,7 +31,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 
 # train a Gaussian classifier
 # TODO ------------------------------------------------------------- update for each exp
-model = GaussianNB()
+model = ARDRegression()
 model.fit(X_train, y_train.values.ravel()) # fix 3
 
 # predict Output
@@ -56,6 +56,6 @@ rec = recall_score(y_test, predicted_new_bike_shares, average='macro')
 metrics_msg = 'accuracy: {} - f1: {} - mean absolute errror: {} - mean squared error: {} \n - precision: {} - r2 score: {} - recall: {} \n \n'.format(acc, f1, mae, mse, pr, r2, rec)
 # "/home/kacham/Documents/tracelogs/metrics/(exp)_(challenge)_(model)_buggy/corrected_metrics.txt"
 # TODO ------------------------------------------------------------- update for each exp
-with open("/home/kacham/Documents/tracelogs/metrics/(exp)_london_merged_(model)_(eval)_metrics.txt", "a") as myfile:
+with open("/home/kacham/Documents/tracelogs/metrics/sk_duplicate_fit_world-happiness_ARDRegression_corrected_metrics.txt", "a") as myfile:
     myfile.write(metrics_msg)
 

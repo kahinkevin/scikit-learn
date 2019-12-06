@@ -427,6 +427,11 @@ class ARDRegression(LinearModel, RegressorMixin):
         self.coef_ = coef_
         self.alpha_ = alpha_
         self.sigma_ = sigma_
+        import os
+        model_name = "ARDRegression"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_add_lambda_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/bayes.py line 430 called \n")
         self.lambda_ = lambda_
         self._set_intercept(X_mean, y_mean, X_std)
         return self
