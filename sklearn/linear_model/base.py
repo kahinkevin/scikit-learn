@@ -223,6 +223,11 @@ class BaseSGD(BaseEstimator):
             if eta0 <= 0.0:
                 raise ValueError("eta0 must be greater than 0.0")
         self.class_weight = class_weight
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/base.py line 226 called \n")
         self.coef_ = None
 
     @abstractmethod
@@ -344,6 +349,11 @@ class BaseSGDClassifier(BaseSGD, ClassifierMixin):
                                                 learning_rate=learning_rate,
                                                 eta0=eta0, power_t=power_t,
                                                 class_weight=class_weight)
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/base.py line 347 called \n")
         self.classes = None
         self.n_jobs = int(n_jobs)
 
@@ -432,6 +442,11 @@ class BaseSGDClassifier(BaseSGD, ClassifierMixin):
         n_samples, n_features = X.shape
         self._check_fit_data(X, y)
 
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/base.py line 435 called \n")
         if self.classes is None and classes is None:
             raise ValueError("classes must be passed on the first call "
                              "to partial_fit.")
@@ -439,6 +454,11 @@ class BaseSGDClassifier(BaseSGD, ClassifierMixin):
             if not np.array_equal(self.classes, np.unique(classes)):
                 raise ValueError("`classes` is not the same as on last call "
                                  "to partial_fit.")
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/base.py line 440 called \n")
         elif classes is not None:
             self.classes = classes
 
@@ -502,6 +522,11 @@ class BaseSGDClassifier(BaseSGD, ClassifierMixin):
         n_samples, n_features = X.shape
         self._check_fit_data(X, y)
 
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/base.py line 505 called \n")
         # sort in asc order; largest class id is positive class
         classes = np.unique(y)
         n_classes = classes.shape[0]
@@ -510,6 +535,11 @@ class BaseSGDClassifier(BaseSGD, ClassifierMixin):
         self._allocate_parameter_mem(n_classes, n_features,
                                      coef_init, intercept_init)
 
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/base.py line 513 called \n")
         return self.partial_fit(X, y,
                                 classes=classes,
                                 sample_weight=sample_weight,

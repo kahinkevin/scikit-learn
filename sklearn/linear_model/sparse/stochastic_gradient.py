@@ -147,6 +147,11 @@ class SGDClassifier(BaseSGDClassifier):
         X_indices = np.asarray(X.indices, dtype=np.int32, order="C")
         X_indptr = np.asarray(X.indptr, dtype=np.int32, order="C")
 
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/sparse/stochastic_gradient.py line 151 called \n")
         coef_, intercept_ = plain_sgd(self.coef_,
                                       self.intercept_[0],
                                       self.loss_function,
@@ -166,6 +171,11 @@ class SGDClassifier(BaseSGDClassifier):
                                       self.eta0, self.power_t)
 
         self._set_coef(coef_)
+        import os
+        model_name = "BaseSGDClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/sparse/stochastic_gradient.py line 169 called \n")
         # intercept is a float, need to convert it to an array of length 1
         self.intercept_ = np.asarray([intercept_], dtype=np.float64)
 
