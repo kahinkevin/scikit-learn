@@ -454,11 +454,7 @@ class BaseSGDClassifier(BaseSGD, ClassifierMixin):
             if not np.array_equal(self.classes, np.unique(classes)):
                 raise ValueError("`classes` is not the same as on last call "
                                  "to partial_fit.")
-        import os
-        model_name = "BaseSGDClassifier"
-        print("TRACER WAS CALLED")
-        with open("/home/kacham/Documents/tracelogs/tracelog_sk_partial_bugs_corrected_" + model_name + ".txt", "a") as myfile:
-            myfile.write(model_name + " in sklearn/linear_model/base.py line 440 called \n")
+
         elif classes is not None:
             self.classes = classes
 
