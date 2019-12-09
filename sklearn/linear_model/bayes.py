@@ -160,6 +160,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
         -------
         self : returns an instance of self.
         """
+        import os
+        model_name = "BayesianRidge"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_buggy_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/bayes.py line 175 called \n")
         X, y = check_X_y(X, y, dtype=np.float64, y_numeric=True)
         X, y, X_offset_, y_offset_, X_scale_ = self._preprocess_data(
             X, y, self.fit_intercept, self.normalize, self.copy_X,
@@ -199,6 +204,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
             # Compute mu and sigma
             # sigma_ = lambda_ / alpha_ * np.eye(n_features) + np.dot(X.T, X)
             # coef_ = sigma_^-1 * XT * y
+            import os
+            model_name = "BayesianRidge"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_buggy_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/bayes.py line 216 called \n")
             if n_samples > n_features:
                 coef_ = np.dot(Vh.T,
                                Vh / (eigen_vals_ +
@@ -223,6 +233,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
             self.lambda_ = lambda_
 
             # Update alpha and lambda
+            import os
+            model_name = "BayesianRidge"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_buggy_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/bayes.py line 229 called \n")
             rmse_ = np.sum((y - np.dot(X, coef_)) ** 2)
             gamma_ = (np.sum((alpha_ * eigen_vals_) /
                       (lambda_ + alpha_ * eigen_vals_)))
@@ -232,6 +247,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
                       (rmse_ + 2 * alpha_2))
 
             # Compute the objective function
+            import os
+            model_name = "BayesianRidge"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_buggy_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/bayes.py line 234 called \n")
             if self.compute_score:
                 s = lambda_1 * log(lambda_) - lambda_2 * lambda_
                 s += alpha_1 * log(alpha_) - alpha_2 * alpha_
@@ -250,6 +270,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
                 break
             coef_old_ = np.copy(coef_)
 
+        import os
+        model_name = "BayesianRidge"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_buggy_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/bayes.py line 244 called \n")
         self.coef_ = coef_
         sigma_ = np.dot(Vh.T,
                         Vh / (eigen_vals_ + lambda_ / alpha_)[:, np.newaxis])
