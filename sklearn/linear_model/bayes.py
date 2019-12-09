@@ -173,6 +173,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
         self : returns an instance of self.
         """
 
+        import os
+        model_name = "BayesianRidge"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/bayes.py line 175 called \n")
         if self.n_iter < 1:
             raise ValueError('n_iter should be greater than or equal to 1.'
                              ' Got {!r}.'.format(self.n_iter))
@@ -213,6 +218,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
         # Convergence loop of the bayesian ridge regression
         for iter_ in range(self.n_iter):
 
+            import os
+            model_name = "BayesianRidge"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_corrected_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/bayes.py line 216 called \n")
             # update posterior mean coef_ based on alpha_ and lambda_ and
             # compute corresponding rmse
             coef_, rmse_ = self._update_coef_(X, y, n_samples, n_features,
@@ -227,6 +237,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
                 self.scores_.append(s)
 
             # Update alpha and lambda according to (MacKay, 1992)
+            import os
+            model_name = "BayesianRidge"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_corrected_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/bayes.py line 229 called \n")
             gamma_ = np.sum((alpha_ * eigen_vals_) /
                             (lambda_ + alpha_ * eigen_vals_))
             lambda_ = ((gamma_ + 2 * lambda_1) /
@@ -234,6 +249,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
             alpha_ = ((n_samples - gamma_ + 2 * alpha_1) /
                       (rmse_ + 2 * alpha_2))
 
+            import os
+            model_name = "BayesianRidge"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_corrected_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/linear_model/bayes.py line 234 called \n")
             # Check for convergence
             if iter_ != 0 and np.sum(np.abs(coef_old_ - coef_)) < self.tol:
                 if verbose:
@@ -241,6 +261,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
                 break
             coef_old_ = np.copy(coef_)
 
+        import os
+        model_name = "BayesianRidge"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/bayes.py line 244 called \n")
         self.n_iter_ = iter_ + 1
 
         # return regularization parameters and corresponding posterior mean,
@@ -310,6 +335,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
                          + np.dot(X.T, X))^-1
         """
 
+        import os
+        model_name = "BayesianRidge"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/bayes.py line 304 called \n")
         if n_samples > n_features:
             coef_ = np.dot(Vh.T,
                            Vh / (eigen_vals_ +
@@ -327,6 +357,11 @@ class BayesianRidge(LinearModel, RegressorMixin):
     def _log_marginal_likelihood(self, n_samples, n_features, eigen_vals,
                                  alpha_, lambda_, coef, rmse):
         """Log marginal likelihood."""
+        import os
+        model_name = "BayesianRidge"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_br_regression_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/linear_model/bayes.py line 304 called \n")
         alpha_1 = self.alpha_1
         alpha_2 = self.alpha_2
         lambda_1 = self.lambda_1
