@@ -53,3 +53,11 @@ metrics_msg = 'evs: {} - mean absolute errror: {} - mean squared error: {} - r2 
 # TODO ------------------------------------------------------------- update for each exp
 with open("/home/kacham/Documents/tracelogs/metrics/sk_fix_br_regression_world-happiness_BayesianRidge_corrected_metrics.txt", "a") as myfile:
     myfile.write(metrics_msg)
+with open("/home/kacham/Documents/tracelogs/params/sk_fix_br_regression_world-happiness_BayesianRidge_corrected_params.txt", "a") as myfile:
+    print(model,file=myfile)
+    myfile.write('true:')
+    print(y_test,file=myfile)
+    myfile.write('predicted:')
+    print(predicted_health_life_expectancy,file=myfile)
+    myfile.write('\n' '\n')
+
