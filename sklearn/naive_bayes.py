@@ -437,6 +437,11 @@ class GaussianNB(BaseNB):
         joint_log_likelihood = np.array(joint_log_likelihood).T
         return joint_log_likelihood
 
+import os
+model_name = "BernoulliNB"
+print("TRACER WAS CALLED")
+with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_alpha_0_corrected_" + model_name + ".txt", "a") as myfile:
+    myfile.write(model_name + " in sklearn/naive_bayes.py line 440 called \n")
 _ALPHA_MIN = 1e-10
 
 
@@ -464,6 +469,11 @@ class BaseDiscreteNB(BaseNB):
             self.class_log_prior_ = np.zeros(n_classes) - np.log(n_classes)
 
     def _check_alpha(self):
+        import os
+        model_name = "BernoulliNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_alpha_0_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 466 called \n")
         if self.alpha < 0:
             raise ValueError('Smoothing parameter alpha = %.1e. '
                              'alpha should be > 0.' % self.alpha)
@@ -551,6 +561,11 @@ class BaseDiscreteNB(BaseNB):
         # be called by the user explicitly just once after several consecutive
         # calls to partial_fit and prior any call to predict[_[log_]proba]
         # to avoid computing the smooth log probas at each call to partial fit
+        import os
+        model_name = "BernoulliNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_alpha_0_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 554 called \n")
         alpha = self._check_alpha()
         self._update_feature_log_prob(alpha)
         self._update_class_log_prior(class_prior=class_prior)
@@ -603,6 +618,11 @@ class BaseDiscreteNB(BaseNB):
                                        dtype=np.float64)
         self._count(X, Y)
         alpha = self._check_alpha()
+        import os
+        model_name = "BernoulliNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_alpha_0_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 605 called \n")
         self._update_feature_log_prob(alpha)
         self._update_class_log_prior(class_prior=class_prior)
         return self
@@ -711,6 +731,11 @@ class MultinomialNB(BaseDiscreteNB):
 
     def _update_feature_log_prob(self, alpha):
         """Apply smoothing to raw counts and recompute log probabilities"""
+        import os
+        model_name = "BernoulliNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_alpha_0_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 712 called \n")
         smoothed_fc = self.feature_count_ + alpha
         smoothed_cc = smoothed_fc.sum(axis=1)
 
@@ -813,6 +838,11 @@ class BernoulliNB(BaseDiscreteNB):
 
     def _update_feature_log_prob(self, alpha):
         """Apply smoothing to raw counts and recompute log probabilities"""
+        import os
+        model_name = "BernoulliNB"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_fix_alpha_0_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/naive_bayes.py line 814 called \n")
         smoothed_fc = self.feature_count_ + alpha
         smoothed_cc = self.class_count_ + alpha * 2
 
