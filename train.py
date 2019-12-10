@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 # TODO ------------------------------------------------------------- update for each exp
-from sklearn.naive_bayes import BaseDiscreteNB
+from sklearn.naive_bayes import BernoulliNB
 
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import GridSearchCV
@@ -31,7 +31,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 
 # train a Gaussian classifier
 # TODO ------------------------------------------------------------- update for each exp
-model = BaseDiscreteNB()
+model = BernoulliNB()
 model.fit(X_train, y_train.values.ravel()) # fix 3
 
 # predict Output
@@ -63,7 +63,7 @@ with open("/home/kacham/Documents/tracelogs/params/sk_fix_alpha_0_world-happines
     myfile.write('True:')
     print(y_test,file=myfile)
     myfile.write('Predicted:')
-    print(predicted_health_life_expectancy,file=myfile)
+    print(predicted_new_bike_shares,file=myfile)
     myfile.write('\n' '\n')
 
 # _________________________________
