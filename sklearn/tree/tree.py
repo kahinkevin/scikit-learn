@@ -180,6 +180,11 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
                 expanded_class_weight = compute_sample_weight(
                     self.class_weight, y_original)
 
+            import os
+            model_name = "DecisionTreeClassifier"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_corrected_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/tree/tree.py line 183 called \n")
             self.n_classes_ = np.array(self.n_classes_, dtype=np.intp)
 
         if getattr(y, "dtype", None) != DOUBLE or not y.flags.contiguous:
@@ -337,6 +342,11 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
                                                 min_weight_leaf,
                                                 random_state)
 
+        import os
+        model_name = "DecisionTreeClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 340 called \n")
         if is_classifier(self):
             self.tree_ = Tree(self.n_features_,
                               self.n_classes_, self.n_outputs_)
@@ -365,6 +375,11 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
 
         builder.build(self.tree_, X, y, sample_weight, X_idx_sorted)
 
+        import os
+        model_name = "DecisionTreeClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 368 called \n")
         if self.n_outputs_ == 1 and is_classifier(self):
             self.n_classes_ = self.n_classes_[0]
             self.classes_ = self.classes_[0]
@@ -509,6 +524,11 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
             return
 
         # build pruned tree
+        import os
+        model_name = "DecisionTreeClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 511 called \n")
         if is_classifier(self):
             n_classes = np.atleast_1d(self.n_classes_)
             pruned_tree = Tree(self.n_features_, n_classes, self.n_outputs_)
@@ -1225,6 +1245,11 @@ class DecisionTreeRegressor(RegressorMixin, BaseDecisionTree):
 
     @property
     def classes_(self):
+        import os
+        model_name = "DecisionTreeClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 1226 called \n")
         # TODO: Remove method in 0.24
         msg = ("the classes_ attribute is to be deprecated from version "
                "0.22 and will be removed in 0.24.")
@@ -1233,6 +1258,11 @@ class DecisionTreeRegressor(RegressorMixin, BaseDecisionTree):
 
     @property
     def n_classes_(self):
+        import os
+        model_name = "DecisionTreeClassifier"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 1226 called \n")
         # TODO: Remove method in 0.24
         msg = ("the n_classes_ attribute is to be deprecated from version "
                "0.22 and will be removed in 0.24.")
