@@ -56,9 +56,9 @@ rec = recall_score(y_test, predicted_new_bike_shares, average='macro')
 metrics_msg = 'accuracy: {} - f1: {} - mean absolute errror: {} - mean squared error: {} \n - precision: {} - r2 score: {} - recall: {} \n \n'.format(acc, f1, mae, mse, pr, r2, rec)
 # "/home/kacham/Documents/tracelogs/metrics/(exp)_(challenge)_(model)_buggy/corrected_metrics.txt"
 # TODO ------------------------------------------------------------- update for each exp
-with open("/home/kacham/Documents/tracelogs/metrics/sk_deprecate_tree_classes_london_merged_DecisionTreeClassifier_corrected_metrics.txt", "a") as myfile:
+with open("/home/kacham/Documents/tracelogs/metrics/sk_deprecate_tree_classes_london_merged_DecisionTreeClassifier_buggy_metrics.txt", "a") as myfile:
     myfile.write(metrics_msg)
-with open("/home/kacham/Documents/tracelogs/params/sk_deprecate_tree_classes_london_merged_DecisionTreeClassifier_corrected_params.txt", "a") as myfile:
+with open("/home/kacham/Documents/tracelogs/params/sk_deprecate_tree_classes_london_merged_DecisionTreeClassifier_buggy_params.txt", "a") as myfile:
     print(model,file=myfile)
     myfile.write('True:')
     print(y_test,file=myfile)
