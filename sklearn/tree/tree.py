@@ -183,7 +183,17 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
         else:
             self.classes_ = [None] * self.n_outputs_
             self.n_classes_ = [1] * self.n_outputs_
+            import os
+            model_name = "DecisionTreeRegressor"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/tree/tree.py line 183 called \n")
 
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 183 called \n")
         self.n_classes_ = np.array(self.n_classes_, dtype=np.intp)
 
         if getattr(y, "dtype", None) != DOUBLE or not y.flags.contiguous:
@@ -342,6 +352,11 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
                                                 random_state)
 
         self.tree_ = Tree(self.n_features_, self.n_classes_, self.n_outputs_)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 340 called \n")
 
         # Use BestFirst if max_leaf_nodes given; use DepthFirst otherwise
         if max_leaf_nodes < 0:
@@ -363,6 +378,11 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
         builder.build(self.tree_, X, y, sample_weight, X_idx_sorted)
 
         if self.n_outputs_ == 1:
+            import os
+            model_name = "DecisionTreeRegressor"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/tree/tree.py line 368 called \n")
             self.n_classes_ = self.n_classes_[0]
             self.classes_ = self.classes_[0]
 
@@ -506,6 +526,11 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
             return
 
         # build pruned treee
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_deprecate_tree_classes_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 511 called \n")
         n_classes = np.atleast_1d(self.n_classes_)
         pruned_tree = Tree(self.n_features_, n_classes, self.n_outputs_)
         _build_pruned_tree_ccp(pruned_tree, self.tree_, self.ccp_alpha)
