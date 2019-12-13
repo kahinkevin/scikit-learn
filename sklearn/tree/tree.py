@@ -377,6 +377,12 @@ class BaseDecisionTree(BaseEstimator, MultiOutputMixin, metaclass=ABCMeta):
 
         builder.build(self.tree_, X, y, sample_weight, X_idx_sorted)
 
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_pruning_min_cost_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 394 called \n")
+
         if self.n_outputs_ == 1:
             self.n_classes_ = self.n_classes_[0]
             self.classes_ = self.classes_[0]
