@@ -31,7 +31,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 
 # train a Gaussian classifier
 # TODO ------------------------------------------------------------- update for each exp
-model = DecisionTreeClassifier()
+model = DecisionTreeClassifier(random_state=123)
 model.fit(X_train, y_train.values.ravel()) # fix 3
 
 # predict Output
