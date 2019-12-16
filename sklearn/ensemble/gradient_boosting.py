@@ -1235,6 +1235,11 @@ class BaseGradientBoosting(BaseEnsemble, metaclass=ABCMeta):
                 random_state=random_state,
                 presort=self.presort)
 
+            import os
+            model_name = "DecisionTreeRegressor"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_pruning_min_cost_buggy_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/ensemble/forest.py line 1237 called \n")
             if self.subsample < 1.0:
                 # no inplace multiplication!
                 sample_weight = sample_weight * sample_mask.astype(np.float64)
@@ -2089,6 +2094,11 @@ shape (n_estimators, ``loss_.K``)
             warm_start=warm_start, presort=presort,
             validation_fraction=validation_fraction,
             n_iter_no_change=n_iter_no_change, tol=tol)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_pruning_min_cost_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/forest.py line 2101 called \n")
 
     def _validate_y(self, y, sample_weight):
         check_classification_targets(y)
@@ -2547,6 +2557,11 @@ class GradientBoostingRegressor(BaseGradientBoosting, RegressorMixin):
             max_leaf_nodes=max_leaf_nodes, warm_start=warm_start,
             presort=presort, validation_fraction=validation_fraction,
             n_iter_no_change=n_iter_no_change, tol=tol)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_pruning_min_cost_buggy_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/forest.py line 2566 called \n")
 
     def predict(self, X):
         """Predict regression target for X.
