@@ -30,7 +30,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 # train a Gaussian classifier
 # TODO ------------------------------------------------------------- update for each exp
 model = DecisionTreeRegressor()
-model.fit(X_train, y_train.values.ravel()) # fix 3
+model.fit(X_train, y_train) # fix 3
 
 # predict Output
 predicted_health_life_expectancy = model.predict(X_test)
