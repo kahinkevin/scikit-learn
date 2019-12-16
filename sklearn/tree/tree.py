@@ -109,6 +109,11 @@ class BaseDecisionTree(BaseEstimator, MultiOutputMixin, metaclass=ABCMeta):
         self.min_impurity_split = min_impurity_split
         self.class_weight = class_weight
         self.presort = presort
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 112 called \n")
         self.ccp_alpha = ccp_alpha
 
     def get_depth(self):
@@ -130,6 +135,11 @@ class BaseDecisionTree(BaseEstimator, MultiOutputMixin, metaclass=ABCMeta):
             X_idx_sorted=None):
 
         random_state = check_random_state(self.random_state)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 133 called \n")
 
         if self.ccp_alpha < 0.0:
             raise ValueError("ccp_alpha must be greater than or equal to 0")
@@ -390,6 +400,11 @@ class BaseDecisionTree(BaseEstimator, MultiOutputMixin, metaclass=ABCMeta):
         if self.n_outputs_ == 1:
             self.n_classes_ = self.n_classes_[0]
             self.classes_ = self.classes_[0]
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 394 called \n")
 
         self._prune_tree()
 
@@ -534,6 +549,11 @@ class BaseDecisionTree(BaseEstimator, MultiOutputMixin, metaclass=ABCMeta):
         n_classes = np.atleast_1d(self.n_classes_)
         pruned_tree = Tree(self.n_features_, n_classes, self.n_outputs_)
         _build_pruned_tree_ccp(pruned_tree, self.tree_, self.ccp_alpha)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 523 called \n")
 
         self.tree_ = pruned_tree
 
@@ -572,6 +592,11 @@ class BaseDecisionTree(BaseEstimator, MultiOutputMixin, metaclass=ABCMeta):
                 Sum of the impurities of the subtree leaves for the
                 corresponding alpha value in ``ccp_alphas``.
         """
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 523 called \n")
         est = clone(self).set_params(ccp_alpha=0.0)
         est.fit(X, y, sample_weight=sample_weight)
         return Bunch(**ccp_pruning_path(est.tree_))
@@ -848,6 +873,11 @@ class DecisionTreeClassifier(BaseDecisionTree, ClassifierMixin):
             min_impurity_split=min_impurity_split,
             presort=presort,
             ccp_alpha=ccp_alpha)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 849 called \n")
 
     def fit(self, X, y, sample_weight=None, check_input=True,
             X_idx_sorted=None):
@@ -1200,6 +1230,11 @@ class DecisionTreeRegressor(BaseDecisionTree, RegressorMixin):
             min_impurity_split=min_impurity_split,
             presort=presort,
             ccp_alpha=ccp_alpha)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 1201 called \n")
 
     def fit(self, X, y, sample_weight=None, check_input=True,
             X_idx_sorted=None):
@@ -1462,6 +1497,11 @@ class ExtraTreeClassifier(DecisionTreeClassifier):
             min_impurity_split=min_impurity_split,
             random_state=random_state,
             ccp_alpha=ccp_alpha)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 1463 called \n")
 
 
 class ExtraTreeRegressor(DecisionTreeRegressor):
@@ -1655,3 +1695,8 @@ class ExtraTreeRegressor(DecisionTreeRegressor):
             min_impurity_split=min_impurity_split,
             random_state=random_state,
             ccp_alpha=ccp_alpha)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/tree/tree.py line 1656 called \n")

@@ -19,12 +19,12 @@ with open("/home/kacham/Documents/tracelogs/tracelog_(exp)_corrected_" + model_n
     myfile.write(model_name + " in  line  called \n")
 
 ________________________________________________________
-sk_
+sk_prunning_min_cost
 
 import os
-model_name = "(modelN)"
+model_name = "DecisionTreeRegressor"
 print("TRACER WAS CALLED")
-with open("/home/kacham/Documents/tracelogs/tracelog_(exp)_(evalType)_" + model_name + ".txt", "a") as myfile:
+with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
     myfile.write(model_name + " in  line  called \n")
 
 

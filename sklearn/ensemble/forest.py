@@ -1043,6 +1043,11 @@ class RandomForestClassifier(ForestClassifier):
         self.min_impurity_decrease = min_impurity_decrease
         self.min_impurity_split = min_impurity_split
         self.ccp_alpha = ccp_alpha
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/forest.py line 1045 called \n")
 
 
 class RandomForestRegressor(ForestRegressor):
@@ -1311,6 +1316,11 @@ class RandomForestRegressor(ForestRegressor):
         self.min_impurity_decrease = min_impurity_decrease
         self.min_impurity_split = min_impurity_split
         self.ccp_alpha = ccp_alpha
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/forest.py line 1313 called \n")
 
 
 class ExtraTreesClassifier(ForestClassifier):
@@ -1584,6 +1594,11 @@ class ExtraTreesClassifier(ForestClassifier):
         self.min_impurity_decrease = min_impurity_decrease
         self.min_impurity_split = min_impurity_split
         self.ccp_alpha = ccp_alpha
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/forest.py line 1586 called \n")
 
 
 class ExtraTreesRegressor(ForestRegressor):
@@ -1822,6 +1837,11 @@ class ExtraTreesRegressor(ForestRegressor):
         self.min_impurity_decrease = min_impurity_decrease
         self.min_impurity_split = min_impurity_split
         self.ccp_alpha = ccp_alpha
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/forest.py line 1824 called \n")
 
 
 class RandomTreesEmbedding(BaseForest):
@@ -2008,6 +2028,11 @@ class RandomTreesEmbedding(BaseForest):
         self.min_impurity_split = min_impurity_split
         self.sparse_output = sparse_output
         self.ccp_alpha = ccp_alpha
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/forest.py line 2010 called \n")
 
     def _set_oob_score(self, X, y):
         raise NotImplementedError("OOB score not supported by tree embedding")

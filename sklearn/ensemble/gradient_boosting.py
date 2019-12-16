@@ -1176,6 +1176,11 @@ class BaseGradientBoosting(BaseEnsemble, metaclass=ABCMeta):
                  validation_fraction=0.1, n_iter_no_change=None,
                  tol=1e-4):
 
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/gradient_boosting.py line 1173 called \n")
         self.n_estimators = n_estimators
         self.learning_rate = learning_rate
         self.loss = loss
@@ -1236,6 +1241,11 @@ class BaseGradientBoosting(BaseEnsemble, metaclass=ABCMeta):
                 random_state=random_state,
                 presort=self.presort,
                 ccp_alpha=self.ccp_alpha)
+            import os
+            model_name = "DecisionTreeRegressor"
+            print("TRACER WAS CALLED")
+            with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+                myfile.write(model_name + " in sklearn/ensemble/gradient_boosting.py line 1238 called \n")
 
             if self.subsample < 1.0:
                 # no inplace multiplication!
@@ -2099,6 +2109,11 @@ shape (n_estimators, ``loss_.K``)
             warm_start=warm_start, presort=presort,
             validation_fraction=validation_fraction,
             n_iter_no_change=n_iter_no_change, tol=tol, ccp_alpha=ccp_alpha)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/gradient_boosting.py line 2101 called \n")
 
     def _validate_y(self, y, sample_weight):
         check_classification_targets(y)
@@ -2564,6 +2579,11 @@ class GradientBoostingRegressor(BaseGradientBoosting, RegressorMixin):
             max_leaf_nodes=max_leaf_nodes, warm_start=warm_start,
             presort=presort, validation_fraction=validation_fraction,
             n_iter_no_change=n_iter_no_change, tol=tol, ccp_alpha=ccp_alpha)
+        import os
+        model_name = "DecisionTreeRegressor"
+        print("TRACER WAS CALLED")
+        with open("/home/kacham/Documents/tracelogs/tracelog_sk_prunning_min_cost_corrected_" + model_name + ".txt", "a") as myfile:
+            myfile.write(model_name + " in sklearn/ensemble/gradient_boosting.py line 2566 called \n")
 
     def predict(self, X):
         """Predict regression target for X.
